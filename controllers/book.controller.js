@@ -42,7 +42,7 @@ const deleteBook = catchAsyncErr(async (req, res) => {
 });
 const getBookDetails = catchAsyncErr(async (req, res) => {
     const id = req.params.id;
-    const book = await Book.findById(id).populate('author', 'name');;
+    const book = await Book.findById(id).populate('author', 'name');
     if (!book) {
         return res.status(404).json({ message: "Book not found" });
     }
@@ -54,7 +54,7 @@ const getAllBooks = catchAsyncErr(async (req, res) => {
     const limit = parseInt(req.query.limit) || 3;
     const skip = (page - 1) * limit;
 
-    const books = await Book.find().skip(skip).limit(limit);
+    const books = await Book.find().populate('author', 'name').skip(skip).limit(limit);
     const totalBooks = await Book.countDocuments();
 
     res.status(200).json({
