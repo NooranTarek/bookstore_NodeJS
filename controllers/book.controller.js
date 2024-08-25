@@ -1,5 +1,3 @@
-//display detailed information about a selected book
-//disply all books 
 //search for spesific book by title
 //filter book by auther
 //disply books for spesific author
@@ -66,10 +64,16 @@ const getAllBooks = catchAsyncErr(async (req, res) => {
         books
     });
 });
+const searchBookByTitle = catchAsyncErr(async (req, res) => {
+    const title = req.query.title;
+    const books = await Book.find({ title: { $regex: title, $options: 'i' } }).populate('author','name');
+    res.status(200).json(books);
+});
 export {
     addBook,
     updateBook,
     deleteBook,
     getBookDetails,
-    getAllBooks
+    getAllBooks,
+    searchBookByTitle
 }
