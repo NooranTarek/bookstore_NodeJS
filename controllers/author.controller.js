@@ -23,9 +23,17 @@ const updateAuthor = catchAsyncErr(async (req, res) => {
     }
   res.status(200).json({ message: "Author updated successfully", author });
 });
-
+const deleteAuthor = catchAsyncErr(async (req, res) => {
+    const id = req.params.id; 
+    const author = await Author.findByIdAndDelete(id);
+    if (!author) {
+        return res.status(404).json({ message: "Author not found" });
+    }
+  res.status(200).json({ message: "Author deleted successfully"});
+});
 
 export{
     addAuthor,
-    updateAuthor
+    updateAuthor,
+    deleteAuthor
 }
