@@ -1,10 +1,7 @@
-//add new book
-//update spesific book
-//delete book
 //display detailed information about a selected book
+//disply all books 
 //search for spesific book by title
 //filter book by auther
-//disply all books 
 //disply books for spesific author
 
 import Author from "../models/author.model.js";
@@ -44,8 +41,35 @@ const deleteBook = catchAsyncErr(async (req, res) => {
     }
   res.status(200).json({ message: "Book deleted successfully"});
 });
+const getBookDetails = catchAsyncErr(async (req, res) => {
+    const id = req.params.id;
+    const book = await Book.findById(id).populate('author', 'name');;
+    if (!book) {
+        return res.status(404).json({ message: "Book not found" });
+    }
+    res.status(200).json(book);
+});
+
+const getAllBooks = catchAsyncErr(async (req, res) => {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 3;
+    const skip = (page - 1) * limit;
+
+    const books = await Book.find().skip(skip).limit(limit);
+    const totalBooks = await Book.countDocuments();
+
+    res.status(200).json({
+        page,
+        limit,
+        totalBooks,
+        totalPages: Math.ceil(totalBooks / limit),
+        books
+    });
+});
 export {
     addBook,
     updateBook,
-    deleteBook
+    deleteBook,
+    getBookDetails,
+    getAllBooks
 }

@@ -1,9 +1,3 @@
-//add author
-//update author
-//delete author
-//disply all authors --> paginated
-//desply spesific author details 
-
 import Author from "../models/author.model.js";
 import { catchAsyncErr } from "../utilities/catchError.js";
 
