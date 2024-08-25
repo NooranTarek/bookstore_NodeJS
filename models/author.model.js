@@ -3,12 +3,13 @@ import { Schema, model } from 'mongoose';
 const authorSchema = new Schema({
   name: {
     type: String,
-    required: true,
+    required: [true, 'Author name is required'],
   },
   email: {
     type: String,
-    required: true,
-    unique: true,
+    required: [true, 'Author email is required'],
+    unique: [true, 'Author email must be unique'],
+    match: [/.+@.+\..+/, 'Please enter a valid email address'],
   },
   bio: {
     type: String,
@@ -18,6 +19,7 @@ const authorSchema = new Schema({
     ref: 'Book',
   }],
 });
+
 
 const Author = model('Author', authorSchema);
 

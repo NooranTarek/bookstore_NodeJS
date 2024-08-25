@@ -7,8 +7,8 @@ const app = express()
 dotenv.config();
 
 app.use(express.json());
-app.use(errorHandler);
 app.use("/",router)
+app.use(errorHandler);
 
 
 

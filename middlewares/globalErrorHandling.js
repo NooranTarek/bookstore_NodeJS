@@ -11,6 +11,7 @@ function errorHandler(err, req, res, next) {
         success: false,
         message: message,
     });
+    
 }
 
 export default errorHandler;
