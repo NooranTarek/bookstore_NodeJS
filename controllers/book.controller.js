@@ -1,4 +1,3 @@
-//search for spesific book by title
 //filter book by auther
 //disply books for spesific author
 
@@ -20,6 +19,8 @@ const addBook=catchAsyncErr(async(req,res)=>{
     });
 
     await book.save();
+    author.books.push(book._id);
+    await author.save();
     res.status(201).json(book);
 })
 const updateBook = catchAsyncErr(async (req, res) => {
@@ -69,11 +70,21 @@ const searchBookByTitle = catchAsyncErr(async (req, res) => {
     const books = await Book.find({ title: { $regex: title, $options: 'i' } }).populate('author','name');
     res.status(200).json(books);
 });
+
+const filterBooksByAuthor = catchAsyncErr(async (req, res) => {
+    const id  = req.params.id;
+    const books = await Book.find({ author: id }).populate('author');
+    if (!books.length) {
+        return res.status(404).json({ message: 'No books found for this author' });
+    }
+    res.status(200).json(books);
+});
 export {
     addBook,
     updateBook,
     deleteBook,
     getBookDetails,
     getAllBooks,
-    searchBookByTitle
+    searchBookByTitle,
+    filterBooksByAuthor
 }
