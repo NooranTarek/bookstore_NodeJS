@@ -73,7 +73,7 @@ const searchBookByTitle = catchAsyncErr(async (req, res) => {
 
 const filterBooksByAuthor = catchAsyncErr(async (req, res) => {
     const id  = req.params.id;
-    const books = await Book.find({ author: id }).populate('author');
+    const books = await Book.find({ author: id });
     if (!books.length) {
         return res.status(404).json({ message: 'No books found for this author' });
     }

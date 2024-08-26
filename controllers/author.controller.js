@@ -2,12 +2,16 @@ import Author from "../models/author.model.js";
 import { catchAsyncErr } from "../utilities/catchError.js";
 
 
-const addAuthor=catchAsyncErr(async (req,res)=>{
-    const {name,email,bio}=req.body;
-    const author=await Author.create({name,email,bio});
-    res.status(201).json({ message: "Author Addedd successfully",author});
+const addAuthor = catchAsyncErr(async (req, res) => {
+    const { name, email, bio } = req.body;
+    const existingAuthor = await Author.findOne({ email });
+    if (existingAuthor) {
+        return res.status(400).json({ message: "Author already exists" });
+    }
+    const author = await Author.create({ name, email, bio });
+    res.status(201).json({ message: "Author added successfully", author });
+});
 
-})
 const updateAuthor = catchAsyncErr(async (req, res) => {
     const id = req.params.id; 
     const { name, email, bio } = req.body; 
