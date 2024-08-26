@@ -1,4 +1,5 @@
 import Author from "../models/author.model.js";
+import Book from "../models/book.model.js";
 import { catchAsyncErr } from "../utilities/catchError.js";
 
 
@@ -22,13 +23,15 @@ const updateAuthor = catchAsyncErr(async (req, res) => {
   res.status(200).json({ message: "Author updated successfully", author });
 });
 const deleteAuthor = catchAsyncErr(async (req, res) => {
-    const id = req.params.id; 
+    const id = req.params.id;
     const author = await Author.findByIdAndDelete(id);
     if (!author) {
         return res.status(404).json({ message: "Author not found" });
     }
-  res.status(200).json({ message: "Author deleted successfully"});
+    await Book.deleteMany({ author: id });
+    res.status(200).json({ message: "Author and their books deleted successfully" });
 });
+
 const getAuthorDetails = catchAsyncErr(async (req, res) => {
     const id = req.params.id;
     const author = await Author.findById(id);
