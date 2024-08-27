@@ -4,7 +4,6 @@
 ![Express](https://img.shields.io/badge/Express-4.x-blue?style=flat-square)
 ![Database](https://img.shields.io/badge/Database-MongoDB-green?style=flat-square)
 
-![Backend Diagram](book_cove.png)
 
 ## 📄 Project Description
 This backend provides RESTful API endpoints for managing books and authors for the "The Book Cove" application. It supports CRUD operations, search, and filtering.
