@@ -1,9 +1,10 @@
 import express from 'express';
 import * as bookController from '../controllers/book.controller.js'
+import { upload } from '../config/cloudinary.js';
 
 
 const bookRouter=express.Router();
-bookRouter.post("/",bookController.addBook)
+bookRouter.post("/",upload.single('image'),bookController.addBook)
 bookRouter.put('/:id',bookController.updateBook);
 bookRouter.delete('/:id',bookController.deleteBook);
 bookRouter.get('/search',bookController.searchBookByTitle);

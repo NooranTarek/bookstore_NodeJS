@@ -6,7 +6,8 @@ import Book from "../models/book.model.js";
 import { catchAsyncErr } from "../utilities/catchError.js";
 
 const addBook=catchAsyncErr(async(req,res)=>{
-    const { title, description, image, authorId } = req.body;
+    const { title, description, authorId } = req.body;
+    const image = req.file?.path;
     const author = await Author.findById(authorId);
     if (!author) {
       return res.status(404).json({ message: 'Author not found' });
@@ -35,11 +36,16 @@ const updateBook = catchAsyncErr(async (req, res) => {
 const deleteBook = catchAsyncErr(async (req, res) => {
     const id = req.params.id; 
     const book = await Book.findByIdAndDelete(id);
+
     if (!book) {
         return res.status(404).json({ message: "Book not found" });
     }
-  res.status(200).json({ message: "Book deleted successfully"});
+    await Author.findByIdAndUpdate(book.author, { 
+        $pull: { books: id } 
+    });
+    res.status(200).json({ message: "Book deleted successfully" });
 });
+
 const getBookDetails = catchAsyncErr(async (req, res) => {
     const id = req.params.id;
     const book = await Book.findById(id).populate('author', 'name');
