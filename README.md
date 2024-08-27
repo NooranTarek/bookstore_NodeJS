@@ -16,26 +16,26 @@ This backend provides RESTful API endpoints for managing books and authors for t
 ## ⚙️ Installation Instructions
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-repo/backend.git
+   git clone git@github.com:NooranTarek/bookstore_NodeJS.git
    ```
 2. **Navigate to the Backend Directory:**
    ```bash
-   cd backend
+   cd bookstore_NodeJS
    ```
 3. **Install Dependencies:**
    ```bash
    npm install
    ```
 4. **Create Environment Variables:**
-   Create a `.env` file and add necessary environment variables.
+   Create a `.env` file and add necessary environment variables. (your mongo connection url)
 5. **Start the Server:**
    ```bash
    nodemon index.js
    ```
 
-## 📄 Data File To Be Tested
-Access the authors [here](https://drive.google.com/file/d/15rphtejz4O4Na2WdEuCkSTcGmUNJ2xdm/view?usp=sharing).
-Access the books [here](https://drive.google.com/file/d/15rphtejz4O4Na2WdEuCkSTcGmUNJ2xdm/view?usp=sharing).
+## 📄 Data File To Be Tested in Postman
+Access the authors [here](https://drive.google.com/file/d/1sT0lx7fvcwdG6aWww9lnnuL0sKQ81xUu/view?usp=sharing).
+Access the books [here](https://drive.google.com/file/d/1ljBrJoH3rIgK8dikS7CiOrfhYzNXAOMi/view?usp=sharing).
 
 ## 📚 Postman Documentation
 Access the Postman documentation [here](https://drive.google.com/file/d/15rphtejz4O4Na2WdEuCkSTcGmUNJ2xdm/view?usp=sharing).
