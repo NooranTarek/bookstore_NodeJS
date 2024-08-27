@@ -1,103 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Backend - The Book Cove</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: #34495e;
-        }
-        h1, h2 {
-            color: #2ecc71;
-        }
-        h2 {
-            border-bottom: 2px solid #2ecc71;
-            padding-bottom: 5px;
-        }
-        ul, ol {
-            margin: 10px 0;
-        }
-        pre {
-            background: #f4f4f4;
-            padding: 10px;
-            border-radius: 5px;
-            overflow-x: auto;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #ecf0f1;
-        }
-        a {
-            color: #2ecc71;
-            text-decoration: none;
-        }
-        .image-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border: 2px solid #2ecc71;
-            border-radius: 5px;
-        }
-    </style>
-</head>
-<body>
-    <h1 style="text-align: center;">The Book Cove - Backend</h1>
-    <p align="center">
-        <img src="https://img.shields.io/badge/Node.js-18.x-brightgreen?style=flat-square" alt="Node.js">
-        <img src="https://img.shields.io/badge/Express-4.x-blue?style=flat-square" alt="Express">
-        <img src="https://img.shields.io/badge/Database-MongoDB-green?style=flat-square" alt="MongoDB">
-    </p>
+# The Book Cove - Backend
 
-    <div class="image-container">
-        <img src="book_cove.png" alt="Backend Diagram">
-    </div>
+![Node.js](https://img.shields.io/badge/Node.js-18.x-brightgreen?style=flat-square)
+![Express](https://img.shields.io/badge/Express-4.x-blue?style=flat-square)
+![Database](https://img.shields.io/badge/Database-MongoDB-green?style=flat-square)
 
-    <h2>📄 Project Description</h2>
-    <p>This backend provides RESTful API endpoints for managing books and authors for the "The Book Cove" application. It supports CRUD operations, search, and filtering.</p>
+![Backend Diagram](book_cove.png)
 
-    <h2>✨ Features</h2>
-    <ul>
-        <li>CRUD operations for books and authors.</li>
-        <li>Search books by title.</li>
-        <li>Filter books by author.</li>
-    </ul>
+## 📄 Project Description
+This backend provides RESTful API endpoints for managing books and authors for the "The Book Cove" application. It supports CRUD operations, search, and filtering.
 
-    <h2>⚙️ Installation Instructions</h2>
-    <ol>
-        <li><strong>Clone the Repository:</strong>
-            <pre>git clone <a href="https://github.com/your-repo/backend.git">https://github.com/your-repo/backend.git</a></pre>
-        </li>
-        <li><strong>Navigate to the Backend Directory:</strong>
-            <pre>cd backend</pre>
-        </li>
-        <li><strong>Install Dependencies:</strong>
-            <pre>npm install</pre>
-        </li>
-        <li><strong>Create Environment Variables:</strong>
-            <p>Create a <code>.env</code> file and add necessary environment variables.</p>
-        </li>
-        <li><strong>Start the Server:</strong>
-            <pre>nodemon index.js</pre>
-        </li>
-    </ol>
+## ✨ Features
+- CRUD operations for books and authors.
+- Search books by title.
+- Filter books by author.
 
-   <h2>📄 Data File To Be Tested</h2>
-    <p>Access the Postman documentation <a href="LINK_TO_POSTMAN_DOC" target="_blank">here</a>.</p>
-    
-    <h2>📚 Postman Documentation</h2>
-    <p>Access the Postman documentation <a href="LINK_TO_POSTMAN_DOC" target="_blank">here</a>.</p>
+## ⚙️ Installation Instructions
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/your-repo/backend.git
+   ```
+2. **Navigate to the Backend Directory:**
+   ```bash
+   cd backend
+   ```
+3. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
+4. **Create Environment Variables:**
+   Create a `.env` file and add necessary environment variables.
+5. **Start the Server:**
+   ```bash
+   nodemon index.js
+   ```
 
-    <footer>
-        <p>Made with ❤️ by <a href="https://github.com/NooranTarek">Nooran Tarek</a></p>
-    </footer>
-</body>
-</html>
+## 📄 Data File To Be Tested
+Access the Postman documentation [here](LINK_TO_POSTMAN_DOC).
+
+## 📚 Postman Documentation
+Access the Postman documentation [here](LINK_TO_POSTMAN_DOC).
+
+**Made with ❤️ by [Nooran Tarek](https://github.com/NooranTarek)**
