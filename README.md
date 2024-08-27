@@ -38,6 +38,6 @@ Access the authors [here](https://drive.google.com/file/d/1sT0lx7fvcwdG6aWww9lnn
 Access the books [here](https://drive.google.com/file/d/1ljBrJoH3rIgK8dikS7CiOrfhYzNXAOMi/view?usp=sharing).
 
 ## 📚 Postman Documentation
-Access the Postman documentation [here](https://drive.google.com/file/d/15rphtejz4O4Na2WdEuCkSTcGmUNJ2xdm/view?usp=sharing).
+Access the Postman documentation [here](https://drive.google.com/file/d/1vr9zw5FDdnWhmGZ6kX2AC7orz9kEE3Dn/view?usp=sharing).
 
 **Made with ❤️ by [Nooran Tarek](https://github.com/NooranTarek)**
