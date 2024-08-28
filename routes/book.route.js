@@ -5,7 +5,7 @@ import { upload } from '../config/cloudinary.js';
 
 const bookRouter=express.Router();
 bookRouter.post("/",upload.single('image'),bookController.addBook)
-bookRouter.put('/:id',bookController.updateBook);
+bookRouter.put('/:id',upload.single('image'),bookController.updateBook);
 bookRouter.delete('/:id',bookController.deleteBook);
 bookRouter.get('/search',bookController.searchBookByTitle);
 bookRouter.get('/author/:id',bookController.filterBooksByAuthor);

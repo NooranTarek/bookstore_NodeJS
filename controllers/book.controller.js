@@ -26,7 +26,8 @@ const addBook=catchAsyncErr(async(req,res)=>{
 })
 const updateBook = catchAsyncErr(async (req, res) => {
     const id = req.params.id; 
-    const { title, description, image, authorId } = req.body; 
+    const image = req.file?.path;
+    const { title, description, authorId } = req.body; 
     const book = await Book.findByIdAndUpdate(id, { title, description, image, authorId }, { new: true });
     if (!book) {
         return res.status(404).json({ message: "Book not found" });
